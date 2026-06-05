@@ -80,7 +80,7 @@ The output is not a final semantic judgment. Instead, CurvInspect identifies **g
 
 ## Visual Example
 
-The following example uses the chord-based industrial inspection preset.
+The following example uses the chord-based industrial inspection configuration.
 
 ```bash
 curvinspect analyze examples/input/real/object_04.png \
@@ -138,18 +138,18 @@ The signal plot shows the processed geometric inspection signal and the selected
 Let a closed polygonal curve be represented by vertices
 
 $$
-p_0, p_1, \dots, p_{n-1} \in \mathbb{R}^2.
+p_0, p_1, \ldots, p_{n-1} \in \mathbb{R}^2.
 $$
 
 At each vertex, CurvInspect estimates a signed turning angle from the incoming and outgoing edge directions.
 
-For consecutive unit tangents \(T_{i-1}\) and \(T_i\), the signed turning angle is computed using
+For consecutive unit tangents $T_{i-1}$ and $T_i$, the signed turning angle is computed using
 
 $$
 \theta_i =
-\operatorname{atan2}
+\mathrm{atan2}
 \left(
-\det(T_{i-1}, T_i),
+\mathrm{det}(T_{i-1}, T_i),
 T_{i-1}\cdot T_i
 \right).
 $$
@@ -169,9 +169,9 @@ $$
 
 Here:
 
-- \(\theta_i\) is the signed turning angle,
-- \(\Delta s_i\) is the local arc-length scale,
-- \(\kappa_i\) is the discrete curvature at vertex \(i\).
+- $\theta_i$ is the signed turning angle,
+- $\Delta s_i$ is the local arc-length scale,
+- $\kappa_i$ is the discrete curvature at vertex $i$.
 
 This allows curvature-like information to be computed directly on digital contours.
 
@@ -220,15 +220,9 @@ negative
 
 ### 3. Local Chord Deviation
 
-For each point \(p_i\), CurvInspect compares the point against the chord connecting two wider-neighborhood points:
+For each point $p_i$, CurvInspect compares the point against the chord connecting the two wider-neighborhood points $p_{i-k}$ and $p_{i+k}$.
 
-$$
-p_{i-k}
-\quad \text{and} \quad
-p_{i+k}.
-$$
-
-The perpendicular distance from \(p_i\) to this local chord forms a scale-dependent boundary irregularity signal.
+The perpendicular distance from $p_i$ to this local chord forms a scale-dependent boundary irregularity signal.
 
 This is useful for:
 
