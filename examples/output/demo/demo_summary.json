@@ -1,0 +1,8 @@
+{
+  "normal_high_curvature_regions": 4,
+  "defective_high_curvature_regions": 7,
+  "extra_candidate_regions": 3,
+  "normal_output_dir": "examples\\output\\demo\\normal",
+  "defective_output_dir": "examples\\output\\demo\\defective",
+  "interpretation": "The defective part contains additional high-curvature regions compared to the normal reference shape."
+}

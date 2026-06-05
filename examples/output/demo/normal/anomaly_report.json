@@ -1,0 +1,56 @@
+{
+  "input": {
+    "path": "examples\\input\\normal_part.png",
+    "image_shape": [
+      480,
+      480,
+      3
+    ]
+  },
+  "contour": {
+    "area": 67600.0,
+    "perimeter": 1040.0,
+    "num_original_points": 1040,
+    "num_resampled_points": 300
+  },
+  "curvature": {
+    "max_abs_curvature": 0.4531143250369891,
+    "mean_abs_curvature": 0.006041524333826491,
+    "total_curvature": 6.283185307179586,
+    "bending_energy": 2.8470012695449913
+  },
+  "anomalies": {
+    "threshold": 1.5,
+    "count": 4,
+    "indices": [
+      0,
+      75,
+      150,
+      225
+    ],
+    "peak_indices": [
+      0,
+      75,
+      150,
+      225
+    ],
+    "groups": [
+      [
+        0,
+        0
+      ],
+      [
+        75,
+        75
+      ],
+      [
+        150,
+        150
+      ],
+      [
+        225,
+        225
+      ]
+    ]
+  }
+}

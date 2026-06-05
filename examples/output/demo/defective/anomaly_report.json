@@ -1,0 +1,78 @@
+{
+  "input": {
+    "path": "examples\\input\\defective_part.png",
+    "image_shape": [
+      480,
+      480,
+      3
+    ]
+  },
+  "contour": {
+    "area": 64162.5,
+    "perimeter": 1203.4385987520218,
+    "num_original_points": 1179,
+    "num_resampled_points": 300
+  },
+  "curvature": {
+    "max_abs_curvature": 0.6434954577844779,
+    "mean_abs_curvature": 0.01794030552003317,
+    "total_curvature": 19.208559943582003,
+    "bending_energy": 4.309905790532877
+  },
+  "anomalies": {
+    "threshold": 1.5,
+    "count": 7,
+    "indices": [
+      0,
+      65,
+      129,
+      130,
+      154,
+      155,
+      182,
+      183,
+      210,
+      235,
+      236
+    ],
+    "peak_indices": [
+      0,
+      65,
+      129,
+      155,
+      182,
+      210,
+      235
+    ],
+    "groups": [
+      [
+        0,
+        0
+      ],
+      [
+        65,
+        65
+      ],
+      [
+        129,
+        130
+      ],
+      [
+        154,
+        155
+      ],
+      [
+        182,
+        183
+      ],
+      [
+        210,
+        210
+      ],
+      [
+        235,
+        236
+      ]
+    ]
+  }
+}
