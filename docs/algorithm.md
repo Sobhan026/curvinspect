@@ -256,9 +256,11 @@ discrete curvature
 
 The approximate discrete curvature is:
 
-```math
-kappa_i ≈ theta_i / Delta_s_i
-```
+$$
+\kappa_i \approx \frac{\theta_i}{\Delta s_i}
+$$
+
+where $\theta_i$ is the signed turning angle and $\Delta s_i$ is the local arc-length scale.
 
 Available curvature modes:
 
@@ -321,13 +323,9 @@ Deviation can be useful when the boundary departs from the general local trend b
 
 The chord signal is based on local chord deviation.
 
-For each point `p_i`, CurvInspect compares it with the chord connecting two wider-neighborhood points:
+For each point $p_i$, CurvInspect compares it with the chord connecting the two wider-neighborhood points $p_{i-k}$ and $p_{i+k}$.
 
-```text
-p_{i-k} and p_{i+k}
-```
-
-The parameter `k` is controlled by:
+The parameter $k$ is controlled by:
 
 ```bash
 --chord-step
