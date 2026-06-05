@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: curvinspect
+Version: 0.1.0
+Summary: Discrete-curvature-based boundary defect detection for object images.
+Author: Sobhan Ebrahimi
+License: MIT
+Keywords: discrete differential geometry,curvature,computer vision,image processing,shape analysis,defect detection
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Image Processing
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=1.26.0
+Requires-Dist: opencv-python>=4.9.0.80
+Requires-Dist: matplotlib>=3.8.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0.0; extra == "dev"
+Requires-Dist: ruff>=0.6.0; extra == "dev"
+Dynamic: license-file

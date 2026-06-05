@@ -1,0 +1,2 @@
+[console_scripts]
+curvinspect = curvinspect.cli:main
