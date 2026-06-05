@@ -18,7 +18,7 @@ $$
 \gamma : I \to \mathbb{R}^2.
 $$
 
-If the curve is parametrized by arc length \(s\), then the unit tangent vector is
+If the curve is parametrized by arc length $s$, then the unit tangent vector is
 
 $$
 T(s) = \frac{d\gamma}{ds}.
@@ -41,7 +41,7 @@ However, in a digital image, the boundary of an object is not given as a smooth 
 A closed object boundary is modeled as a sequence of points
 
 $$
-p_0, p_1, \dots, p_{n-1} \in \mathbb{R}^2,
+p_0, p_1, \ldots, p_{n-1} \in \mathbb{R}^2,
 $$
 
 with the convention that
@@ -66,7 +66,7 @@ $$
 \ell_i = \|e_i\|.
 $$
 
-A unit tangent along edge \(i\) is then
+A unit tangent along edge $i$ is then
 
 $$
 T_i = \frac{e_i}{\|e_i\|}.
@@ -78,29 +78,17 @@ This is the discrete analogue of the tangent vector of a smooth curve.
 
 ## 3. Signed Turning Angle
 
-At each vertex \(p_i\), the curve changes direction from the previous edge to the next edge.
+At each vertex $p_i$, the curve changes direction from the previous edge to the next edge.
 
-Let
-
-$$
-T_{i-1}
-$$
-
-be the incoming unit tangent and
-
-$$
-T_i
-$$
-
-be the outgoing unit tangent.
+Let $T_{i-1}$ be the incoming unit tangent and $T_i$ be the outgoing unit tangent.
 
 The signed turning angle is computed using
 
 $$
 \theta_i =
-\operatorname{atan2}
+\mathrm{atan2}
 \left(
-\det(T_{i-1}, T_i),
+\mathrm{det}(T_{i-1}, T_i),
 T_{i-1} \cdot T_i
 \right).
 $$
@@ -108,7 +96,7 @@ $$
 Here,
 
 $$
-\det(T_{i-1}, T_i)
+\mathrm{det}(T_{i-1}, T_i)
 =
 T_{i-1}^{(x)}T_i^{(y)}
 -
@@ -127,7 +115,7 @@ A positive angle indicates one orientation of turning, and a negative angle indi
 
 For a smooth curve, curvature is the rate of change of the tangent vector with respect to arc length.
 
-For a polygonal curve, the local arc-length scale around vertex \(p_i\) is approximated by averaging the lengths of the adjacent edges:
+For a polygonal curve, the local arc-length scale around vertex $p_i$ is approximated by averaging the lengths of the adjacent edges:
 
 $$
 \Delta s_i =
@@ -140,7 +128,7 @@ This gives a local length scale around the vertex.
 
 ## 5. Discrete Curvature
 
-The discrete curvature at vertex \(p_i\) is approximated by
+The discrete curvature at vertex $p_i$ is approximated by
 
 $$
 \kappa_i \approx \frac{\theta_i}{\Delta s_i}.
@@ -152,7 +140,7 @@ $$
 \kappa = \frac{d\theta}{ds},
 $$
 
-where \(\theta\) is the tangent angle.
+where $\theta$ is the tangent angle.
 
 In CurvInspect, both signed and absolute forms of curvature are useful.
 
@@ -193,7 +181,7 @@ CurvInspect uses this idea to reason about the dominant turning orientation of a
 The total curvature of a polygonal curve is defined as
 
 $$
-K_{\text{total}} =
+K_{\mathrm{total}} =
 \sum_i |\theta_i|.
 $$
 
@@ -263,7 +251,7 @@ CurvInspect therefore resamples the contour approximately uniformly by arc lengt
 The goal is to obtain a sequence
 
 $$
-q_0, q_1, \dots, q_{m-1}
+q_0, q_1, \ldots, q_{m-1}
 $$
 
 such that consecutive points are more evenly spaced along the boundary.
@@ -320,23 +308,17 @@ CurvInspect therefore includes a smoothed normal deviation signal.
 First, the original curve is smoothed to produce a reference curve:
 
 $$
-\tilde{p}_i.
+\widetilde{p}_i.
 $$
 
 Then, local tangents and normals are estimated on the smoothed curve.
 
-Let
-
-$$
-N_i
-$$
-
-be a unit normal vector at the smoothed reference point \(\tilde{p}_i\).
+Let $N_i$ be a unit normal vector at the smoothed reference point $\widetilde{p}_i$.
 
 The displacement between the original and smoothed curve is
 
 $$
-d_i = p_i - \tilde{p}_i.
+d_i = p_i - \widetilde{p}_i.
 $$
 
 The signed normal deviation is
@@ -361,19 +343,9 @@ Some defects are shallow and occur on nearly straight edges. These may not produ
 
 To address this, CurvInspect includes local chord deviation.
 
-For each point \(p_i\), choose a scale parameter \(k\). The method considers the chord connecting
+For each point $p_i$, choose a scale parameter $k$. The method considers the chord connecting $p_{i-k}$ and $p_{i+k}$.
 
-$$
-p_{i-k}
-$$
-
-and
-
-$$
-p_{i+k}.
-$$
-
-The point \(p_i\) is compared to this chord.
+The point $p_i$ is compared to this chord.
 
 Let
 
@@ -390,11 +362,11 @@ u_i =
 \frac{b_i - a_i}{\|b_i - a_i\|}.
 $$
 
-The signed perpendicular distance from \(p_i\) to the chord is computed by a two-dimensional cross-product expression:
+The signed perpendicular distance from $p_i$ to the chord is computed by a two-dimensional cross-product expression:
 
 $$
 c_i =
-\det(u_i, p_i - a_i).
+\mathrm{det}(u_i, p_i - a_i).
 $$
 
 The absolute chord deviation is
@@ -403,9 +375,9 @@ $$
 |c_i|.
 $$
 
-This signal is scale-dependent. The parameter \(k\), called `chord_step` in the CLI, controls the neighborhood size.
+This signal is scale-dependent. The parameter $k$, called `chord_step` in the CLI, controls the neighborhood size.
 
-Small values of \(k\) detect finer irregularities. Larger values of \(k\) detect broader deviations.
+Small values of $k$ detect finer irregularities. Larger values of $k$ detect broader deviations.
 
 ---
 
@@ -413,7 +385,7 @@ Small values of \(k\) detect finer irregularities. Larger values of \(k\) detect
 
 For a smooth curve, the sagitta of a short arc is related to curvature.
 
-If a curve segment has chord length \(L\) and approximately constant curvature \(\kappa\), then the sagitta is approximately
+If a curve segment has chord length $L$ and approximately constant curvature $\kappa$, then the sagitta is approximately
 
 $$
 h \approx \frac{\kappa L^2}{8}.
@@ -437,8 +409,8 @@ A common robust form is based on the median and median absolute deviation:
 
 $$
 z_i =
-\frac{x_i - \operatorname{median}(x)}
-{\operatorname{MAD}(x) + \varepsilon}.
+\frac{x_i - \mathrm{median}(x)}
+{\mathrm{MAD}(x) + \varepsilon}.
 $$
 
 Large values of this score indicate unusually strong boundary responses.
@@ -481,12 +453,12 @@ Although CurvInspect works with images and code, the central ideas come directly
 
 | Smooth Geometry | Discrete CurvInspect Version |
 |---|---|
-| Smooth curve \(\gamma(s)\) | Polygonal contour \(p_i\) |
-| Tangent vector \(T(s)\) | Edge unit tangent \(T_i\) |
-| Curvature \(\kappa = \|dT/ds\|\) | Turning angle divided by local arc length |
-| Arc length \(ds\) | Edge-length-based local scale \(\Delta s_i\) |
+| Smooth curve $\gamma(s)$ | Polygonal contour $p_i$ |
+| Tangent vector $T(s)$ | Edge unit tangent $T_i$ |
+| Curvature $\kappa = \|dT/ds\|$ | Turning angle divided by local arc length |
+| Arc length $ds$ | Edge-length-based local scale $\Delta s_i$ |
 | Total curvature | Sum of absolute turning angles |
-| Bending energy | Sum of \(\kappa_i^2 \Delta s_i\) |
+| Bending energy | Sum of $\kappa_i^2 \Delta s_i$ |
 | Normal direction | Estimated normal of a smoothed discrete curve |
 | Local curve deviation | Normal and chord-based deviation signals |
 
