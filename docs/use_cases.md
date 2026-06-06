@@ -552,40 +552,10 @@ It is a geometry-based boundary analysis toolkit.
 
 This distinction is important because geometric irregularity does not always mean real-world defect.
 
----
-
-## 14. Recommended README Example
-
-For the main GitHub README, the recommended visual example is:
-
-```bash
-curvinspect analyze examples/input/real/object_04.png \
-  --output examples/output/real/object_04_chord_tuned_1 \
-  --method threshold \
-  --analysis-contour raw \
-  --inspection-signal chord \
-  --chord-mode absolute \
-  --chord-step 25 \
-  --num-samples 700 \
-  --smoothing median \
-  --smoothing-window 11 \
-  --threshold 1.9
-```
-
-Recommended files to copy into `docs/assets`:
-
-```text
-docs/assets/object_04_input.png
-docs/assets/object_04_overlay.png
-docs/assets/object_04_overlay_debug.png
-docs/assets/object_04_signal.png
-```
-
-This gives the project a concrete visual demonstration.
 
 ---
 
-## 15. Summary
+## 14. Summary
 
 CurvInspect is useful when the boundary of an object matters.
 
