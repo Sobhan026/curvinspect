@@ -96,11 +96,13 @@ $$
 Here,
 
 $$
-\mathrm{det}(T_{i-1}, T_i)
-=
-T_{i-1}^{(x)}T_i^{(y)}
--
-T_{i-1}^{(y)}T_i^{(x)}.
+\det(T_{i-1}, T_i)=T_{i-1,x}T_{i,y}-T_{i-1,y}T_{i,x}.
+$$ 
+
+The dot product is
+
+$$
+T_{i-1}\cdot T_i=T_{i-1,x}T_{i,x}+T_{i-1,y}T_{i,y}. 
 $$
 
 The dot product measures alignment, while the determinant measures oriented area and therefore direction of rotation.
