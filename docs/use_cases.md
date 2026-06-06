@@ -57,7 +57,6 @@ This makes it suitable for:
 - computational geometry assignments,
 - visual demonstrations,
 - applied mathematics projects,
-- student GitHub portfolios.
 
 ### Recommended Command
 
